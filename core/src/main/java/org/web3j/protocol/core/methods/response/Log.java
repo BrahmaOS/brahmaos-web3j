@@ -1,5 +1,8 @@
 package org.web3j.protocol.core.methods.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigInteger;
 import java.util.List;
 
@@ -12,16 +15,37 @@ import org.web3j.utils.Numeric;
  * If only a list of hashes are returned for filters created with eth_newBlockFilter or
  * eth_newPendingTransactionFilter.</p>
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Log {
+
+    @JsonProperty("removed")
     private boolean removed;
+
+    @JsonProperty("logIndex")
     private String logIndex;
+
+    @JsonProperty("transactionIndex")
     private String transactionIndex;
+
+    @JsonProperty("transactionHash")
     private String transactionHash;
+
+    @JsonProperty("blockHash")
     private String blockHash;
+
+    @JsonProperty("blockNumber")
     private String blockNumber;
+
+    @JsonProperty("address")
     private String address;
+
+    @JsonProperty("data")
     private String data;
+
+    @JsonProperty("type")
     private String type;
+
+    @JsonProperty("topics")
     private List<String> topics;
 
     public Log() {

@@ -1,6 +1,10 @@
 
 package org.web3j.protocol.core.methods.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigInteger;
 import java.util.List;
 
@@ -9,21 +13,48 @@ import org.web3j.utils.Numeric;
 /**
  * TransactionReceipt object used by {@link EthGetTransactionReceipt}.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TransactionReceipt {
+
+    @JsonProperty("transactionHash")
     private String transactionHash;
+
+    @JsonProperty("transactionIndex")
     private String transactionIndex;
+
+    @JsonProperty("blockHash")
     private String blockHash;
+
+    @JsonProperty("blockNumber")
     private String blockNumber;
+
+    @JsonProperty("cumulativeGasUsed")
     private String cumulativeGasUsed;
+
+    @JsonProperty("gasUsed")
     private String gasUsed;
+
+    @JsonProperty("contractAddress")
     private String contractAddress;
+
+    @JsonProperty("root")
     private String root;
+
     // status is only present on Byzantium transactions onwards
     // see EIP 658 https://github.com/ethereum/EIPs/pull/658
+    @JsonProperty("status")
     private String status;
+
+    @JsonProperty("frome")
     private String from;
+
+    @JsonProperty("to")
     private String to;
+
+    @JsonIgnore
     private List<Log> logs;
+
+    @JsonProperty("logsBloom")
     private String logsBloom;
 
     public TransactionReceipt() {
