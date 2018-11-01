@@ -3,6 +3,8 @@ package org.web3j.protocol.core.methods.request;
 import java.math.BigInteger;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import org.web3j.utils.Numeric;
 
@@ -19,12 +21,25 @@ public class Transaction {
     // default as per https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendtransaction
     public static final BigInteger DEFAULT_GAS = BigInteger.valueOf(9000);
 
+    @JsonProperty("from")
     private String from;
+
+    @JsonProperty("to")
     private String to;
+
+    @JsonProperty("gas")
     private BigInteger gas;
+
+    @JsonProperty("gasPrice")
     private BigInteger gasPrice;
+
+    @JsonProperty("value")
     private BigInteger value;
+
+    @JsonProperty("data")
     private String data;
+
+    @JsonProperty("nonce")
     private BigInteger nonce;  // nonce field is not present on eth_call/eth_estimateGas
 
     public Transaction(String from, BigInteger nonce, BigInteger gasPrice, BigInteger gasLimit,

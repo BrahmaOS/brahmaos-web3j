@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.web3j.utils.Numeric;
 
@@ -12,11 +13,23 @@ import org.web3j.utils.Numeric;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ShhPost {
+
+    @JsonProperty("from")
     private String from;
+
+    @JsonProperty("to")
     private String to;
+
+    @JsonProperty("topics")
     private List<String> topics;
+
+    @JsonProperty("payload")
     private String payload;
+
+    @JsonProperty("priority")
     private BigInteger priority;
+
+    @JsonProperty("ttl")
     private BigInteger ttl;
 
     public ShhPost(List<String> topics, String payload, BigInteger priority,

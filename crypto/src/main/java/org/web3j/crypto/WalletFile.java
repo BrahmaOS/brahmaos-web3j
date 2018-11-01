@@ -19,7 +19,7 @@ public class WalletFile {
     private String address;
     private Crypto crypto;
     private String id;
-    private int version;
+    private Integer version;
 
     public WalletFile() {
     }
@@ -347,10 +347,10 @@ public class WalletFile {
     }
 
     public static class ScryptKdfParams implements KdfParams {
-        private int dklen;
-        private int n;
-        private int p;
-        private int r;
+        private Integer dklen;
+        private Integer n;
+        private Integer p;
+        private Integer r;
         private String salt;
 
         public ScryptKdfParams() {

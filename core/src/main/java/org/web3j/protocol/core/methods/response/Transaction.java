@@ -1,5 +1,7 @@
 package org.web3j.protocol.core.methods.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigInteger;
 
 import org.web3j.utils.Numeric;
@@ -8,22 +10,56 @@ import org.web3j.utils.Numeric;
  * Transaction object used by both {@link EthTransaction} and {@link EthBlock}.
  */
 public class Transaction {
+
+    @JsonProperty("hash")
     private String hash;
+
+    @JsonProperty("nonce")
     private String nonce;
+
+    @JsonProperty("blockHash")
     private String blockHash;
+
+    @JsonProperty("blockNumber")
     private String blockNumber;
+
+    @JsonProperty("transactionIndex")
     private String transactionIndex;
+
+    @JsonProperty("from")
     private String from;
+
+    @JsonProperty("to")
     private String to;
+
+    @JsonProperty("value")
     private String value;
+
+    @JsonProperty("gasPrice")
     private String gasPrice;
+
+    @JsonProperty("gas")
     private String gas;
+
+    @JsonProperty("input")
     private String input;
+
+    @JsonProperty("creates")
     private String creates;
+
+    @JsonProperty("publicKey")
     private String publicKey;
+
+    @JsonProperty("raw")
     private String raw;
+
+    @JsonProperty("r")
     private String r;
+
+    @JsonProperty("s")
     private String s;
+
+    @JsonProperty("v")
     private int v;  // see https://github.com/web3j/web3j/issues/44
 
     public Transaction() {

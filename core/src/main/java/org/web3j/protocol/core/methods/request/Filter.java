@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
@@ -13,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public abstract class Filter<T extends Filter> {
 
     private T thisObj;
+
+    @JsonProperty("topics")
     private List<FilterTopic> topics;
 
     Filter() {
