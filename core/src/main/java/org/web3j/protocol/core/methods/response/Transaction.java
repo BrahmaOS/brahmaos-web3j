@@ -1,6 +1,7 @@
 package org.web3j.protocol.core.methods.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.math.BigInteger;
 
@@ -60,7 +61,7 @@ public class Transaction {
     private String s;
 
     @JsonProperty("v")
-    private int v;  // see https://github.com/web3j/web3j/issues/44
+    private Integer v;  // see https://github.com/web3j/web3j/issues/44
 
     public Transaction() {
     }
@@ -251,6 +252,7 @@ public class Transaction {
     // Workaround until Geth & Parity return consistent values. At present
     // Parity returns a byte value, Geth returns a hex-encoded string
     // https://github.com/ethereum/go-ethereum/issues/3339
+    @JsonSetter("v")
     public void setV(Object v) {
         if (v instanceof String) {
             this.v = Numeric.toBigInt((String) v).intValue();
