@@ -60,8 +60,8 @@ public class Transaction {
     @JsonProperty("s")
     private String s;
 
-    @JsonProperty("v")
-    private Integer v;  // see https://github.com/web3j/web3j/issues/44
+//    @JsonProperty("v")
+//    private Integer v;  // see https://github.com/web3j/web3j/issues/44
 
     public Transaction() {
     }
@@ -86,7 +86,7 @@ public class Transaction {
         this.raw = raw;
         this.r = r;
         this.s = s;
-        this.v = v;
+//        this.v = v;
     }
 
     public String getHash() {
@@ -242,7 +242,7 @@ public class Transaction {
     }
 
     public int getV() {
-        return v;
+        return 0x1c;
     }
 
     // public void setV(byte v) {
@@ -252,14 +252,14 @@ public class Transaction {
     // Workaround until Geth & Parity return consistent values. At present
     // Parity returns a byte value, Geth returns a hex-encoded string
     // https://github.com/ethereum/go-ethereum/issues/3339
-    @JsonSetter("v")
-    public void setV(Object v) {
-        if (v instanceof String) {
-            this.v = Numeric.toBigInt((String) v).intValue();
-        } else {
-            this.v = ((Integer) v);
-        }
-    }
+//    @JsonSetter("v")
+//    public void setV(Object v) {
+//        if (v instanceof String) {
+//            this.v = Numeric.toBigInt((String) v).intValue();
+//        } else {
+//            this.v = ((Integer) v);
+//        }
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -272,9 +272,9 @@ public class Transaction {
 
         Transaction that = (Transaction) o;
 
-        if (getV() != that.getV()) {
-            return false;
-        }
+//        if (getV() != that.getV()) {
+//            return false;
+//        }
         if (getHash() != null ? !getHash().equals(that.getHash()) : that.getHash() != null) {
             return false;
         }
